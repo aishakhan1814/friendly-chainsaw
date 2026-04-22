@@ -1,0 +1,13 @@
+name: COSC Greeting
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Greeting
+        run: echo "Hello from COSC!"
