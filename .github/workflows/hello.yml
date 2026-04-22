@@ -1,13 +1,17 @@
-name: COSC Greeting
+name: Dynamic COSC Greeting
 
-on: 
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
-  greet:
+  cool-greeting:
     runs-on: ubuntu-latest
     steps:
-      - name: Send Greeting
-        run: echo "Hello from COSC!"
+      - name: The Big Reveal
+        run: |
+          echo "🚀 Achievement Unlocked: Commit by ${{ github.actor }}!"
+          echo "📂 Project: ${{ github.repository }}"
+          echo "💬 Message: ${{ github.event.head_commit.message }}"
+          echo "✨ Status: COSC is officially watching this adventure evolve."
+          
+      - name: Random Fun Fact
+        run: 'curl -sL -H "Accept: application/json" https://uselessfacts.jsph.pl/api/v2/facts/random | jq -r ".text"'
